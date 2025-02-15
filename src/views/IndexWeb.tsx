@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 import WebRouter from "src/views/Web/Router";
 import AppRouter from "src/views/App/Router";
-import Header from "./Web/Header";
 import { useEffect } from "react";
 const WEB_ROUTES = ["/", "/login"];
 
