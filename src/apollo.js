@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache , HttpLink , ApolloLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-const PRODUCTION = false
+const PRODUCTION = true
 const url = PRODUCTION ? 'https://api.globalfun.cam/graphql' : 'http://localhost:4000/graphql'
 const sfuUrl  =  PRODUCTION ? 'https://sfu.globalfun.cam/graphql' : "http://localhost:4001/graphql"
 
