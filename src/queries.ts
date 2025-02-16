@@ -6,92 +6,51 @@ export const HELLO = gql`
 	}
 `;
 
-export const LOGIN = gql`
-	mutation modelLogin($data: LoginInput!) {
-		modelLogin(data: $data) {
+export const ADMIN_LOGIN = gql`
+	mutation adminLogin($data: LoginInput!) {
+		adminLogin(data: $data) {
 			user {
 				id
 				email
 				username
 				name
 				avatar
-				profileSetupStep
-				profileComplete
-				documentsVerified
 			}
 			token
 		}
 	}
 `;
 
-export const REGISTER = gql`
-	mutation modelRegister($data: RegisterInput!) {
-		modelRegister(data: $data) {
+export const CREATE_ADMIN = gql`
+	mutation createAdmin {
+		createAdmin{
 			user {
 				id
 				email
 				username
 				name
 				avatar
-				profileSetupStep
-				profileComplete
-				documentsVerified
 			}
 			token
 		}
 	}
 `;
 
-export const UPDATE_AVATAR = gql`
-	mutation updateAvatar($filename: String!) {
-		updateAvatar(filename: $filename) {
-			id
-			email
-			username
-			name
-			avatar
-			profileSetupStep
-			profileComplete
-			documentsVerified
-		}
+export const VERIFY_MODEL_DOCS = gql`
+	mutation verifyModelDocuments($username:String!) {
+		verifyModelDocuments(username:$username)
 	}
 `;
 
-export const UPDATE_DOCUMENTS = gql`
-	mutation updateDocument($filename: String!,$docType:UploadDocsInputType!) {
-		updateDocument(filename: $filename,docType:$docType){
-			id
-			email
-			username
-			name
-			avatar
-			profileSetupStep
-			profileComplete
-			documentsVerified
-		}
+export const DELETE_MODEL = gql`
+	mutation deleteModel($username:String!) {
+		deleteModel(username:$username)
 	}
 `;
 
-
-
-export const ADD_BASIC_INFO = gql`
-	mutation addBasicInfo($data: AddBasicInfo!) {
-		addBasicInfo(data: $data) {
-			id
-			email
-			username
-			name
-			avatar
-			profileSetupStep
-			profileComplete
-			documentsVerified
-		}
-	}
-`;
-
-export const MODEL_DATA = gql`
-	query modelData {
-		modelData {
+export const GET_ALL_MODELS = gql`
+	query getAllModels {
+		getAllModels{
 			id
 			email
 			username
@@ -116,6 +75,50 @@ export const MODEL_DATA = gql`
 		}
 	}
 `;
+
+
+export const GET_MODEL_DATA = gql`
+	query getModelData($username:String!) {
+		getModelData(username:$username){
+			id
+			email
+			username
+			name
+			avatar
+			profileSetupStep
+			profileComplete
+			documentsVerified
+			basic_info{
+				id
+				dob
+				eyecolor
+				gender
+				haircolor
+				height
+				weight
+				profession
+			}
+			address {
+				id
+				city
+				country
+				country_code
+				telephone
+				zipcode
+				address
+			}
+			documents {
+				passport_front
+				passport_back
+				selfie_with_id
+				proof_of_address
+				business_certification
+			}
+		}
+	}
+`;
+
+
 
 export const GET_CLOUD_PUT_URL = gql`
 	query getCloudPutUrl($filename: String!, $mimetype: String!, $bucket: String) {
