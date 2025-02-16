@@ -98,9 +98,9 @@ const Textarea = (props: any) => {
 	);
 };
 
-const SubmitButton = ({ saving, label }: any) => {
+const SubmitButton = ({ saving, label, customClasses }: any) => {
 	return (
-		<button disabled={saving} type="submit" className="flex justify-center bg-main-pink text-white text-center w-full p-2 mt-6 rounded-full text-lg">
+		<button disabled={saving} type="submit" className={`flex justify-center bg-main-pink text-white text-center w-full p-2 mt-6 rounded-full text-lg ${customClasses}`}>
 			{saving ? <ButtonSpinner /> : label}
 		</button>
 	);

@@ -31,7 +31,7 @@ function Sidebar() {
           </ul>
         </li> */}
         <li className="mb-1 group">
-          <Link to="/produce"  className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+          <Link to="/models"  className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
             <i className="bx bx-list-ul mr-3 text-lg" />                
             <span className="text-sm">Models</span>
           </Link>
@@ -75,7 +75,7 @@ function Sidebar() {
         </li> */}
       </ul>
     </div>
-    <div className="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay" />
+    {/* <div className="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay" /> */}
     </>
   )
 }

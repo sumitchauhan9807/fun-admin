@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Input, SubmitButton } from 'src/components/FormItems'
-import { LOGIN } from 'src/queries'
+import { ADMIN_LOGIN } from 'src/queries'
 import { useDispatch } from "react-redux";
 import { setUserData } from 'src/redux/user'
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ const schema = z.object({
 
 export default function Login() {
   const dispatch = useDispatch()
-  const [loginUser, { loading }] = useMutation(LOGIN);
+  const [loginUser, { loading }] = useMutation(ADMIN_LOGIN);
   // const [loginUser, { loading }] = useMutation(LOGIN,{context:{apiName:"sfu"}});
 
   const {
@@ -35,7 +35,7 @@ export default function Login() {
           }
         }
       })
-      dispatch(setUserData(data.modelLogin))
+      dispatch(setUserData(data.adminLogin))
     } catch (e: any) {
       setError("root", {
         message: e.message,

@@ -2,11 +2,14 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Dashboard from "src/views/App/Dashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Login from "src/views/Web/Login";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import Sidebar from "src/views/App/components/Sidebar";
 import NavBar from "src/views/App/components/NavBar";
+
+import AllModels from "src/views/App/AllModels";
+import ModelDetails from "src/views/App/ModelDetails";
+
 
 function Router() {
 	const userData = useSelector((state: any) => state.user);
@@ -25,6 +28,8 @@ function Router() {
 				<NavBar />
 				<Routes>
 					<Route path="/dashboard" element={<Dashboard />} />
+					<Route path="/models" element={<AllModels />} />
+					<Route path="/model/:username" element={<ModelDetails />} />
 				</Routes>
 			</main>
 		</div>
